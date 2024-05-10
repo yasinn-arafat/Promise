@@ -7,21 +7,21 @@
 
 // ------ Promise Creation -------
 
-// const myPromise = new Promise(function (resolve, reject) {
-//   setTimeout(() => {
-//     reject("Your Data is fetching");
-//   }, 2000);
-// });
+const myPromise = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    reject("Your Data is fetching");
+  }, 2000);
+});
 
 //  ------- Promise Consuming -------
 
-// myPromise
-//   .then((value) => {
-//     console.log(value);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+myPromise
+  .then((value) => {
+    console.log(value);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // ----------- Promise Functionality ------------
 
@@ -115,4 +115,28 @@ one()
   })
   .catch((error) => {
     console.log(error);
+  });
+
+// ---------- Fetch Api ------------
+
+const api = "https://dummyjson.com/products";
+
+fetch(api)
+  .then((data) => {
+    return data;
+  })
+  .then((daat) => {
+    return daat.json();
+  })
+  .then((jasondata) => {
+    return jasondata.product;
+  })
+  .then((productsData) => {
+    return productsData;
+  })
+  .then((finalData) => {
+    console.log(finalData[1]);
+  })
+  .catch((err) => {
+    console.log("ERROR" + err);
   });
